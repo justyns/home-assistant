@@ -1,4 +1,5 @@
 sudo: false
+services: postgresql
 matrix:
   fast_finish: true
   include:
@@ -16,4 +17,6 @@ cache:
 install: pip install -U tox coveralls
 language: python
 script: tox
-after_success: coveralls
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+# after_success: coveralls
