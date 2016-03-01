@@ -73,3 +73,7 @@ class TestCommandSensorSensor(unittest.TestCase):
         data.update()
 
         self.assertEqual(None, data.value)
+
+    def test_broken_test(self):
+        """ purposely broken for travis ci """
+        self.assertEqual(False, True)
